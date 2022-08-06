@@ -38,7 +38,6 @@ if (isset($_GET['code'])) {
 // function Saved(){    
 // トップ４曲の情報をオブジェクトで返す。'tracks'を'artistにへんこうすればアーティストが返ってくる
 // $top = $api->getMySavedTracks(['limit' => 50]);
-// $top = $api->getMySavedTracks(['limit' => 50]);
 // }
 
 
@@ -53,33 +52,46 @@ if (isset($_GET['code'])) {
 // );
 
 
-// addplaylists 
-// $playlistId string - トラックを追加するプレイリストの ID。
-// $tracks string|array - 追加するトラック ID、トラック URI、およびエピソード URI。
-// $options 配列|オブジェクト- オプション。新しいトラックのオプション。
-// int 位置 オプション。プレイリスト内のゼロベースのトラック位置。省略または false の場合、トラックが追加されます。
-function addplaylist($api)
-{
-    // playlists/{plaulists_id}/tracks
-    $top = $api->addPlaylistTracks(
-        '2TOrU6SsuWL3xuH085RmbS',
-        '6jjYDGxVJsWS0a5wlVF5vS',
-    );
+// // addplaylists 
+// // $playlistId string - トラックを追加するプレイリストの ID。
+// // $tracks string|array - 追加するトラック ID、トラック URI、およびエピソード URI。
+// // $options 配列|オブジェクト- オプション。新しいトラックのオプション。
+// // int 位置 オプション。プレイリスト内のゼロベースのトラック位置。省略または false の場合、トラックが追加されます。
+// function addplaylist($api)
+// {
+//     // playlists/{plaulists_id}/tracks
+//     $top = $api->addPlaylistTracks(
+//         '2TOrU6SsuWL3xuH085RmbS',
+//         '6jjYDGxVJsWS0a5wlVF5vS',
+//     );
+//     // var_dump($top);
+//     // echo '<pre>';
+//     // print_r($top);
+//     // //認証を受けたアカウントのプロフィールが表示される
+//     // echo '</pre>';
+//     // 実行後にこれが表示される
+//     // https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_
+//     // type=code&redirect_uri=http://localhost/geek/index.php&scope=user-top-read%&state=state 
+//     // https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_
+//     // type=code&redirect_uri=http://localhost/geek/index.php&scope=$user-top-read%25&state=state
+// }
+// addplaylist($api);
 
-    // var_dump($top);
-    // echo '<pre>';
-    // print_r($top);
-    // //認証を受けたアカウントのプロフィールが表示される
-    // echo '</pre>';
-    // 実行後にこれが表示される
-    // https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_
-    // type=code&redirect_uri=http://localhost/geek/index.php&scope=user-top-read%&state=state 
-    // https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_
-    // type=code&redirect_uri=http://localhost/geek/index.php&scope=$user-top-read%25&state=state
+
+// getUserPlaylistsユーザーのプレイリストを表示する
+// $userId string - ユーザーの ID または URI。
+// $options 配列|オブジェクト- オプション。トラックのオプション。
+// int limit オプション。トラック数を制限します。
+// int オフセット オプション。スキップするトラック数。
+function getUserPlaylists($userId, $api)
+{
+    $top = $api->getUserPlaylists($userId, ['limit' => 50]);
+    echo '<pre>';
+    print_r($top);
+    //認証を受けたアカウントのプロフィールが表示される
+    echo '</pre>';
 }
 
-
-addplaylist($api);
 
 // foreach($top as $line){
 //     echo $line;
