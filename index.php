@@ -34,23 +34,23 @@ if (isset($_GET['code'])) {
 }
 
 // トップ４曲の情報をオブジェクトで返す。'tracks'を'artistにへんこうすればアーティストが返ってくる
-// $top = $api->getMySavedTracks('tracks', ['limit' => 50]);
+$top = $api->getMySavedTracks('tracks', ['limit' => 50]);
 
 // function Saved(){    
 //     $top = $api->getMySavedTracks('tracks', ['limit' => 50]);
 // }
 
-function createPlaylist($id){
-    return 
-}
+// function createPlaylist($id){
+//     return 
+// }
 
 
-// Create Playlist
-$top = $api->createPlaylist(
-    "新しいプレイリスト",
-    "新しいプレイリストですよ（ここに駅間の説明とか時間入力するといいね）",
-    false
-);
+// // Create Playlist
+// $top = $api->createPlaylist(
+//     "新しいプレイリスト",
+//     "新しいプレイリストですよ（ここに駅間の説明とか時間入力するといいね）",
+//     false
+// );
 
 
 
