@@ -116,19 +116,19 @@ function getUserPlaylists($userId, $api)
     echo '</pre>';
 }
 
-// // getMySavedTracksお気に入り登録しt曲を返す
+// // getMySavedTracks→お気に入り登録しt曲を返す
 // getMySavedTracks($api);
 
-// // Create Playlist
+// // Create Playlist→これエラーなるんよね
 // createPlaylists($api);
 
-// // addplaylists 
+// // addplaylists→プレイリストに曲を追加
 // addplaylist($api);
 
 // // userの個人情報を返す
 // introgation($api);
 
-// // getUserPlaylistsユーザーのプレイリストを表示する
+// // getUserPlaylists→ユーザーのプレイリストを表示する→ないプレイリストが表示される
 // getUserPlaylists($userId, $api);
 
 
