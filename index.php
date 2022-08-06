@@ -34,7 +34,7 @@ if (isset($_GET['code'])) {
 }
 
 // トップ４曲の情報をオブジェクトで返す。'tracks'を'artistにへんこうすればアーティストが返ってくる
-$top = $api->getMySavedTracks('tracks', ['limit' => 50]);
+$top = $api->getMySavedTracks(['limit' => 50]);
 
 // function Saved(){    
 //     $top = $api->getMySavedTracks('tracks', ['limit' => 50]);
