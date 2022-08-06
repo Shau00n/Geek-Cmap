@@ -1,0 +1,7 @@
+{
+  "name": "Playlist Generator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
