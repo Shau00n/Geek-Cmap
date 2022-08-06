@@ -2,9 +2,9 @@
 require 'vendor/autoload.php';
 
 $session = new SpotifyWebAPI\Session(
-    '{393f40d1fc6e49a28c3b7979883e8979}', 
-    '{2f9e216fb9e540b78674ffa16cfa3b2e}', 
-    '{http://localhost/geek/playlists}'
+    '393f40d1fc6e49a28c3b7979883e8979', 
+    '2f9e216fb9e540b78674ffa16cfa3b2e',
+    'http://localhost:8888/callback'
 );
 $api = new SpotifyWebAPI\SpotifyWebAPI();
 
