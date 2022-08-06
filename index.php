@@ -34,6 +34,10 @@ if (isset($_GET['code'])) {
     die();
 }
 
+// 変数定義
+$userId = 'shaun';
+$user_id = '393f40d1fc6e49a28c3b7979883e8979';
+
 
 // function Saved(){    
 // トップ４曲の情報をオブジェクトで返す。'tracks'を'artistにへんこうすればアーティストが返ってくる
