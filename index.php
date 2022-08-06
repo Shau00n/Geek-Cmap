@@ -18,11 +18,16 @@ if (isset($_GET['code'])) {
           'playlist-read-private', 
           'playlist-modify-private', 
           'user-read-private',
-          'playlist-modify'
+          'playlist-modify',
+          'user-top-read'
         )
     )));
     die();
 }
+
+// トップ４曲の情報をオブジェクトで返す。'tracks'を'artistにへんこうすればアーティストが返ってくる
+$top = $api->getMyTop('tracks', ['limit' => 4]);
+
 
 echo '<pre>';
     print_r($api->me()); //認証を受けたアカウントのプロフィールが表示される
