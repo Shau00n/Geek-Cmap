@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 $session = new SpotifyWebAPI\Session(
     '{ecaf4790632c43daa7a38db33d08a80c}', 
     '{4e77afdd5f82437c89eb54b1c43b2f0a}', 
-    '{YOUR_REDIRECt_URI}'
+    '{http://localhost:8100/tabs/tab1}'
 );
 $api = new SpotifyWebAPI\SpotifyWebAPI();
 
