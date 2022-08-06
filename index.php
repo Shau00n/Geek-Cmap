@@ -37,6 +37,8 @@ if (isset($_GET['code'])) {
 // 変数定義
 $userId = 'shaun';
 $user_id = '393f40d1fc6e49a28c3b7979883e8979';
+$tracks_id = '2TOrU6SsuWL3xuH085RmbS';
+$playlist_id = '6jjYDGxVJsWS0a5wlVF5vS';
 
 
 // getMySavedTracksお気に入り登録しt曲を返す
@@ -66,17 +68,18 @@ function createPlaylists($api){
     echo '</pre>';
 }
 
+
 // addplaylists 
 // $playlistId string - トラックを追加するプレイリストの ID。
 // $tracks string|array - 追加するトラック ID、トラック URI、およびエピソード URI。
 // $options 配列|オブジェクト- オプション。新しいトラックのオプション。
 // int 位置 オプション。プレイリスト内のゼロベースのトラック位置。省略または false の場合、トラックが追加されます。
-function addplaylist($api)
+function addplaylist($api, $tracks_id, $playlist_id)
 {
     // playlists/{plaulists_id}/tracks
     $top = $api->addPlaylistTracks(
-        '2TOrU6SsuWL3xuH085RmbS',
-        '6jjYDGxVJsWS0a5wlVF5vS',
+        "$tracks_id",
+        "$playlist_id"
     );
     // var_dump($top);
     echo '<pre>';
@@ -89,7 +92,6 @@ function addplaylist($api)
     // https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_
     // type=code&redirect_uri=http://localhost/geek/index.php&scope=$user-top-read%25&state=state
 }
-
 
 
 // userの個人情報を返す
@@ -107,9 +109,9 @@ function introgation($api)
 // $options 配列|オブジェクト- オプション。トラックのオプション。
 // int limit オプション。トラック数を制限します。
 // int オフセット オプション。スキップするトラック数。
-function getUserPlaylists($userId, $api)
+function getUserPlaylists($api)
 {
-    $top = $api->getUserPlaylists($userId, ['limit' => 50]);
+    $top = $api->getUserPlaylists('shaun', ['limit' => 50]);
     echo '<pre>';
     print_r($top);
     //認証を受けたアカウントのプロフィールが表示される
@@ -122,14 +124,14 @@ function getUserPlaylists($userId, $api)
 // // Create Playlist→これエラーなるんよね
 // createPlaylists($api);
 
-// // addplaylists→プレイリストに曲を追加
-// addplaylist($api);
+// addplaylists→プレイリストに曲を追加
+addplaylist($api, $tracks_id, $playlist_id);
 
 // // userの個人情報を返す
 // introgation($api);
 
 // // getUserPlaylists→ユーザーのプレイリストを表示する→ないプレイリストが表示される
-// getUserPlaylists($userId, $api);
+// getUserPlaylists($api);
 
 
 ?>
