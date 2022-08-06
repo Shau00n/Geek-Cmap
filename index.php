@@ -95,7 +95,7 @@ function getUserPlaylists($userId, $api)
     //認証を受けたアカウントのプロフィールが表示される
     echo '</pre>';
 }
-
+getUserPlaylists($userId, $api);
 
 // foreach($top as $line){
 //     echo $line;
