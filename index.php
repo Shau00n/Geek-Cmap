@@ -19,12 +19,13 @@ if (isset($_GET['code'])) {
     header('Location: ' . $session->getAuthorizeUrl(array(
         'scope' => array( 
           'playlist-read-private', 
-          'playlist-modify-private', 
-          'user-read-private',
           'playlist-modify',
-          'user-top-read',
+          'playlist-modify-private', 
           'playlist-modify-public',
+          'user-read-private',
+          'user-top-read',
           'user-library-read',
+          '',
           ''
 
         )
@@ -33,17 +34,38 @@ if (isset($_GET['code'])) {
 }
 
 // トップ４曲の情報をオブジェクトで返す。'tracks'を'artistにへんこうすればアーティストが返ってくる
-$top = $api->getMySavedTracks('tracks', ['limit' => 1]);
+// $top = $api->getMySavedTracks('tracks', ['limit' => 50]);
+
+// function Saved(){    
+//     $top = $api->getMySavedTracks('tracks', ['limit' => 50]);
+// }
+
+function createPlaylist($id){
+    return 
+}
+
+
+// Create Playlist
+$top = $api->createPlaylist(
+    "新しいプレイリスト",
+    "新しいプレイリストですよ（ここに駅間の説明とか時間入力するといいね）",
+    false
+);
+
+
+
+
 
 // foreach($top as $line){
 //     echo $line;
 // }
 
+// var_dump(get_object_vars($top));
 
 // var_dump($top);
 // echo $top;
 echo '<pre>';
-    print_r($top['name']);
+    print_r($top);
      //認証を受けたアカウントのプロフィールが表示される
 echo '</pre>';
 
