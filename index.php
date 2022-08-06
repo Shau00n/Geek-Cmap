@@ -39,47 +39,67 @@ $userId = 'shaun';
 $user_id = '393f40d1fc6e49a28c3b7979883e8979';
 
 
-// function Saved(){    
+// getMySavedTracksお気に入り登録しt曲を返す
+function getMySavedTracks($api){    
 // トップ４曲の情報をオブジェクトで返す。'tracks'を'artistにへんこうすればアーティストが返ってくる
-// $top = $api->getMySavedTracks(['limit' => 50]);
-// }
+$top = $api->getMySavedTracks(['limit' => 50]);
+echo '<pre>';
+print_r($top);
+//認証を受けたアカウントのプロフィールが表示される
+echo '</pre>';
+}
 
 
-// // Create Playlist $idこれはユーザーid
-// // ２publiにするか否か
-// // ３デフォルトはfalseです。trueプレイリストが共同である場合
-// $top = $api->createPlaylist(
-//     "新しいプレイリスト",
-//     true,  
-//     false,  
-//     "新しいプレイリストですよ（ここに駅間の説明とか時間入力するといいね）"
-// );
+// Create Playlist $idこれはユーザーid
+// ２publiにするか否か
+// ３デフォルトはfalseです。trueプレイリストが共同である場合
+function createPlaylists($api){
+    $top = $api->createPlaylist(
+        "新しいプレイリスト",
+        true,  
+        false,  
+        "新しいプレイリストですよ（ここに駅間の説明とか時間入力するといいね）"
+    );
+    echo '<pre>';
+    print_r($top);
+    //認証を受けたアカウントのプロフィールが表示される
+    echo '</pre>';
+}
+
+// addplaylists 
+// $playlistId string - トラックを追加するプレイリストの ID。
+// $tracks string|array - 追加するトラック ID、トラック URI、およびエピソード URI。
+// $options 配列|オブジェクト- オプション。新しいトラックのオプション。
+// int 位置 オプション。プレイリスト内のゼロベースのトラック位置。省略または false の場合、トラックが追加されます。
+function addplaylist($api)
+{
+    // playlists/{plaulists_id}/tracks
+    $top = $api->addPlaylistTracks(
+        '2TOrU6SsuWL3xuH085RmbS',
+        '6jjYDGxVJsWS0a5wlVF5vS',
+    );
+    // var_dump($top);
+    echo '<pre>';
+    print_r($top);
+    //認証を受けたアカウントのプロフィールが表示される
+    echo '</pre>';
+    // 実行後にこれが表示される
+    // https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_
+    // type=code&redirect_uri=http://localhost/geek/index.php&scope=user-top-read%&state=state 
+    // https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_
+    // type=code&redirect_uri=http://localhost/geek/index.php&scope=$user-top-read%25&state=state
+}
 
 
-// // addplaylists 
-// // $playlistId string - トラックを追加するプレイリストの ID。
-// // $tracks string|array - 追加するトラック ID、トラック URI、およびエピソード URI。
-// // $options 配列|オブジェクト- オプション。新しいトラックのオプション。
-// // int 位置 オプション。プレイリスト内のゼロベースのトラック位置。省略または false の場合、トラックが追加されます。
-// function addplaylist($api)
-// {
-//     // playlists/{plaulists_id}/tracks
-//     $top = $api->addPlaylistTracks(
-//         '2TOrU6SsuWL3xuH085RmbS',
-//         '6jjYDGxVJsWS0a5wlVF5vS',
-//     );
-//     // var_dump($top);
-//     // echo '<pre>';
-//     // print_r($top);
-//     // //認証を受けたアカウントのプロフィールが表示される
-//     // echo '</pre>';
-//     // 実行後にこれが表示される
-//     // https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_
-//     // type=code&redirect_uri=http://localhost/geek/index.php&scope=user-top-read%&state=state 
-//     // https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_
-//     // type=code&redirect_uri=http://localhost/geek/index.php&scope=$user-top-read%25&state=state
-// }
-// addplaylist($api);
+
+// userの個人情報を返す
+function introgation($api)
+{
+    echo '<pre>';
+    print_r($api->me()); //認証を受けたアカウントのプロフィールが表示される
+    echo '</pre>';
+}
+
 
 
 // getUserPlaylistsユーザーのプレイリストを表示する
@@ -95,24 +115,24 @@ function getUserPlaylists($userId, $api)
     //認証を受けたアカウントのプロフィールが表示される
     echo '</pre>';
 }
-getUserPlaylists($userId, $api);
 
-// foreach($top as $line){
-//     echo $line;
-// }
+// // getMySavedTracksお気に入り登録しt曲を返す
+// getMySavedTracks($api);
 
-// var_dump(get_object_vars($top));
+// // Create Playlist
+// createPlaylists($api);
 
-// var_dump($top);
-// echo $top;
-// echo '<pre>';
-// print_r($top);
-// //認証を受けたアカウントのプロフィールが表示される
-// echo '</pre>';
+// // addplaylists 
+// addplaylist($api);
 
+// // userの個人情報を返す
+// introgation($api);
+
+// // getUserPlaylistsユーザーのプレイリストを表示する
+// getUserPlaylists($userId, $api);
 
 
 ?>
 
-https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_type=code&redirect_uri=http://localhost/geek/index.php&scope=user-top-read%&state=state
-https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_type=code&redirect_uri=http://localhost/geek/index.php&scope=$user-top-read%25&state=state
+<!-- https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_type=code&redirect_uri=http://localhost/geek/index.php&scope=user-top-read%&state=state
+https://accounts.spotify.com/authorize?client_id=393f40d1fc6e49a28c3b7979883e8979&response_type=code&redirect_uri=http://localhost/geek/index.php&scope=$user-top-read%25&state=state -->
