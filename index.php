@@ -39,29 +39,30 @@ $userId = 'shaun';
 $user_id = '393f40d1fc6e49a28c3b7979883e8979';
 $tracks_id = '2TOrU6SsuWL3xuH085RmbS';
 $playlist_id = '6jjYDGxVJsWS0a5wlVF5vS';
-
+$playlist_name = '新しいプレイリスト';
 
 // getMySavedTracksお気に入り登録しt曲を返す
-function getMySavedTracks($api){    
-// トップ４曲の情報をオブジェクトで返す。'tracks'を'artistにへんこうすればアーティストが返ってくる
-$top = $api->getMySavedTracks(['limit' => 50]);
-echo '<pre>';
-print_r($top);
-//認証を受けたアカウントのプロフィールが表示される
-echo '</pre>';
+function getMySavedTracks($api)
+{
+    // トップ４曲の情報をオブジェクトで返す。'tracks'を'artistにへんこうすればアーティストが返ってくる
+    $top = $api->getMySavedTracks(['limit' => 50]);
+    echo '<pre>';
+    print_r($top);
+    //認証を受けたアカウントのプロフィールが表示される
+    echo '</pre>';
 }
 
 
 // Create Playlist $idこれはユーザーid
 // ２publiにするか否か
 // ３デフォルトはfalseです。trueプレイリストが共同である場合
-function createPlaylists($api){
-    $top = $api->createPlaylist(
-        "新しいプレイリスト",
-        true,  
-        false,  
-        "新しいプレイリストですよ（ここに駅間の説明とか時間入力するといいね）"
-    );
+function createPlaylists($api, $playlist_name)
+{
+    $options = array(
+        'name'=>"$playlist_name", 
+        'public'=>'', 
+        'description'=>'');
+    $top = $api->createPlaylist($options);
     echo '<pre>';
     print_r($top);
     //認証を受けたアカウントのプロフィールが表示される
@@ -118,14 +119,14 @@ function getUserPlaylists($api)
     echo '</pre>';
 }
 
-// // getMySavedTracks→お気に入り登録しt曲を返す
+// getMySavedTracks→お気に入り登録しt曲を返す
 // getMySavedTracks($api);
 
 // // Create Playlist→これエラーなるんよね
-// createPlaylists($api);
+// createPlaylists($api, $playlist_name);
 
-// addplaylists→プレイリストに曲を追加
-addplaylist($api, $tracks_id, $playlist_id);
+// // addplaylists→プレイリストに曲を追加
+// addplaylist($api, $tracks_id, $playlist_id);
 
 // // userの個人情報を返す
 // introgation($api);
