@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'favorite-tracks',
+    loadChildren: () => import('./favorite-tracks/favorite-tracks.module').then( m => m.FavoriteTracksPageModule)
   }
 ];
 @NgModule({

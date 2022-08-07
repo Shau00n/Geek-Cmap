@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 // import { responce } from '../mock';
 import { TrackResponse } from '../interface';
 
@@ -8,15 +9,11 @@ import { TrackResponse } from '../interface';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  public form = [
-    { val: 'Habit', isChecked: true },
-    { val: 'ミックスナッツ', isChecked: false },
-    { val: 'W / X / Y', isChecked: false },
-    { val: 'シンデレラボーイ', isChecked: false },
-  ];
-
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
   ionViewWillEnter() {}
+  onClick() {
+    this.router.navigateByUrl('/favorite-tracks');
+  }
 }

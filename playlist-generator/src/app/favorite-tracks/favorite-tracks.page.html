@@ -1,0 +1,41 @@
+<head>
+  <style>
+    :root {
+      --ion-safe-area-top: 20px;
+      --ion-safe-area-bottom: 22px;
+    }
+  </style>
+</head>
+<body>
+  <ion-app>
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title> Favorite Tracks </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content [fullscreen]="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">Favorite Tracks</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-list>
+        <ion-item *ngFor="let entry of form">
+          <ion-label>{{entry.val}}</ion-label>
+          <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+
+      <div class="label">
+        <ion-label>32 min</ion-label>
+      </div>
+
+      <ion-button expand="block" (click)="onClick()">Create</ion-button>
+    </ion-content>
+  </ion-app>
+</body>
