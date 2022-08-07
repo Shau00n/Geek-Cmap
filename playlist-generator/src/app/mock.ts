@@ -1,6 +1,6 @@
 import { TrackResponse } from './interface';
 
-const Responce: TrackResponse = {
+const responce: TrackResponse = {
   items: [
     { track: { id: '2uMNMcjjUz8oNIxjIu20qE', name: 'Habit' } },
     { track: { id: '60ReNXcPcsVFd7nUuQw5HZ', name: 'ミックスナッツ' } },
